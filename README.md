@@ -1,5 +1,5 @@
 # coachbox
-Coaching app focused on short video exchanges
+Coaching app in react-native focused on short video exchanges
 
 ## Setup Environment
 1. Open vscode with coachbox project
