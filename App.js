@@ -1,5 +1,12 @@
 import React from 'react';
-import { StyleSheet, View, Text, Button, TextInput } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Button,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
 import Authentication from './components/Authentication';
 
 export default function App() {
@@ -7,54 +14,84 @@ export default function App() {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
-  return(    
-    <View style={{alignItems: 'center', flex: 1 }}>
-      <View style={{ flex: 1 }}>
-        <Text style={styles.header}>CoachBox</Text>
+  return (
+    <View style={{alignItems: 'center', flex: 2}}>
+      <View style={{flex: 1, alignItems: 'center'}}>
+        <View style={styles.headerContainer}>
+          <Text style={styles.header}>CoachBox</Text>
+        </View>
         <Text style={styles.title}>Authentication</Text>
       </View>
-      
-      <View style={{ flex: 1, flexDirection: 'row' }}>
-        <Button title="Coach" onPress={() => setIsCoachSelected(true)}/>
-        <Button title="Athlete" onPress={() => setIsCoachSelected(false)}/>
+
+      <View
+        style={{
+          flex: 1,
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => setIsCoachSelected(true)}>
+          <Text>Coach</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => setIsCoachSelected(false)}>
+          <Text>Athlete</Text>
+        </TouchableOpacity>
       </View>
-      <View style={{ flex: 2 }}>
-        <Text>Hello Coach!</Text>
-        <Text>Please fill out the form below to get started</Text>
-        <Text>Email</Text>
-        <TextInput placeholder={'Enter email here...'} value={email} onChangeText={text => setEmail(text)}/>
+
+      <View style={{flex: 2}}>
+        <Text>Hello {isCoachSelected ? 'coach' : 'athlete'}!</Text>
+        <Text style={{color: 'grey'}}>
+          Please fill out the form below to get started:
+        </Text>
+        <Text style={{marginTop: 5}}>Email</Text>
+        <TextInput
+          placeholder={'Enter email here...'}
+          value={email}
+          onChangeText={text => setEmail(text)}
+        />
         <Text>Password</Text>
-        <TextInput placeholder={'Enter password here...'} value={password} onChangeText={text => setPassword(text)} secureTextEntry={true}/>
-        <Button title="Sign up!"/>
+        <TextInput
+          placeholder={'Enter password here...'}
+          value={password}
+          onChangeText={text => setPassword(text)}
+          secureTextEntry={true}
+        />
+        <Button title="Sign up!" />
       </View>
-      
-      <View style={{ flex: 1 }}>
-        <Text>-----Debug-----</Text>
+      <View style={{flex: 1}}>
+        <Text>Debug</Text>
         <Text>IsCoachSelected = {isCoachSelected.toString()}</Text>
         <Text>Email = {email}</Text>
         <Text>Password = {password}</Text>
-      </View>      
+      </View>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   headerContainer: {
-    flex: 1
+    borderRadius: 2,
+    backgroundColor: '#ca2008',
+    width: 100,
   },
   header: {
-      fontSize: 14,
-      color: 'white',
-      fontWeight: 'bold',
-      backgroundColor: '#6200EE'
+    fontSize: 14,
+    color: 'white',
+    fontWeight: 'bold',
   },
-  title: {
-  },
+  title: {},
   authenticationContainer: {
-    flex: 1
+    flex: 1,
   },
   button: {
+    alignItems: 'center',
+    backgroundColor: '#00dafa',
+    padding: 5,
+    margin: 2,
+    borderRadius: 2,
   },
-  
-
-})
+});
