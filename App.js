@@ -22,13 +22,12 @@ export default function App() {
         <View style={styles.headerContainer}>
           <Text style={styles.header}>CoachBox</Text>
         </View>
-        <Text style={styles.title}>Authentication</Text>
       </View>
-      
+
       <View>
-        <Text>Choose account type:</Text>
+        <Text style={{fontSize: 16}}>Choose account type:</Text>
       </View>
-      
+
       <View
         style={{
           flex: 1,
@@ -39,13 +38,13 @@ export default function App() {
         <TouchableOpacity
           style={styles.button}
           onPress={() => setIsCoachSelected(true)}>
-          <Coach width={120} height={40} />
+          <Coach width={120} height={60} />
           <Text>Coach</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
           onPress={() => setIsCoachSelected(false)}>
-          <Athlete width={120} height={40} />
+          <Athlete width={120} height={60} />
           <Text>Athlete</Text>
         </TouchableOpacity>
       </View>
@@ -70,13 +69,13 @@ export default function App() {
         />
         <Button title="Sign up!" />
       </View>
-      
-      <View style={{flex: 1}}>
+
+      {/* <View style={{flex: 1}}>
         <Text>Debug</Text>
         <Text>IsCoachSelected = {isCoachSelected.toString()}</Text>
         <Text>Email = {email}</Text>
         <Text>Password = {password}</Text>
-      </View>
+      </View> */}
     </View>
   );
 }
@@ -84,12 +83,13 @@ export default function App() {
 const styles = StyleSheet.create({
   headerContainer: {
     borderRadius: 2,
-    backgroundColor: '#ca2008',
-    width: 100,
+    backgroundColor: '#00dafa',
+    width: 500,
+    alignItems: 'center',
   },
   header: {
-    fontSize: 14,
-    color: 'white',
+    fontSize: 24,
+    color: 'black',
     fontWeight: 'bold',
   },
   title: {},
