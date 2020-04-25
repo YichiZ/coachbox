@@ -8,6 +8,8 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Authentication from './components/Authentication';
+import Coach from './assets/Authentication/coach.svg';
+import Athlete from './assets/Authentication/athlete.svg';
 
 export default function App() {
   const [isCoachSelected, setIsCoachSelected] = React.useState(true);
@@ -30,11 +32,13 @@ export default function App() {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
+        <Coach width={120} height={40} />
         <TouchableOpacity
           style={styles.button}
           onPress={() => setIsCoachSelected(true)}>
           <Text>Coach</Text>
         </TouchableOpacity>
+        <Athlete width={120} height={40} />
         <TouchableOpacity
           style={styles.button}
           onPress={() => setIsCoachSelected(false)}>
