@@ -18,13 +18,17 @@ export default function App() {
 
   return (
     <View style={{alignItems: 'center', flex: 2}}>
-      <View style={{flex: 1, alignItems: 'center'}}>
+      <View style={{alignItems: 'center'}}>
         <View style={styles.headerContainer}>
           <Text style={styles.header}>CoachBox</Text>
         </View>
         <Text style={styles.title}>Authentication</Text>
       </View>
-
+      
+      <View>
+        <Text>Choose account type:</Text>
+      </View>
+      
       <View
         style={{
           flex: 1,
@@ -32,16 +36,16 @@ export default function App() {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <Coach width={120} height={40} />
         <TouchableOpacity
           style={styles.button}
           onPress={() => setIsCoachSelected(true)}>
+          <Coach width={120} height={40} />
           <Text>Coach</Text>
         </TouchableOpacity>
-        <Athlete width={120} height={40} />
         <TouchableOpacity
           style={styles.button}
           onPress={() => setIsCoachSelected(false)}>
+          <Athlete width={120} height={40} />
           <Text>Athlete</Text>
         </TouchableOpacity>
       </View>
@@ -66,6 +70,7 @@ export default function App() {
         />
         <Button title="Sign up!" />
       </View>
+      
       <View style={{flex: 1}}>
         <Text>Debug</Text>
         <Text>IsCoachSelected = {isCoachSelected.toString()}</Text>
