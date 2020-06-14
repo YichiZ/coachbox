@@ -3,12 +3,12 @@ import {
   StyleSheet,
   View,
   Text,
-  Button,
-  TextInput,
   TouchableOpacity,
 } from 'react-native';
 import Coach from '../assets/Authentication/coach.svg';
 import Athlete from '../assets/Authentication/athlete.svg';
+import { Button, Input } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function Authentication() {
   const [isCoachSelected, setIsCoachSelected] = React.useState(true);
@@ -21,10 +21,6 @@ export default function Authentication() {
         <View style={styles.headerContainer}>
           <Text style={styles.header}>CoachBox</Text>
         </View>
-      </View>
-
-      <View>
-        <Text style={{fontSize: 16}}>Choose account type:</Text>
       </View>
 
       <View
@@ -48,33 +44,70 @@ export default function Authentication() {
         </TouchableOpacity>
       </View>
 
+      <Button
+        icon={
+          <Icon
+            name="check"
+            size={15}
+            color="white"
+          />
+        }
+        title="Button with icon component"
+        type="clear"
+      />
+
+      <Input
+        placeholder='Please enter your email address'
+        leftIcon={
+          <Icon
+            name='enveloppe'
+            size={16}
+            color='black'
+          />
+          }
+        />
+
+      <Input
+        placeholder='Please enter a password'
+        leftIcon={
+          <Icon
+            name='lock'
+            size={16}
+            color='black'
+          />
+          }
+        />
+
       <View style={{flex: 2}}>
         <Text>Hello {isCoachSelected ? 'coach' : 'athlete'}!</Text>
         <Text style={{color: 'grey'}}>
           Please fill out the form below to get started:
         </Text>
-        <Text style={{marginTop: 5}}>Email</Text>
-        <TextInput
-          placeholder={'Enter email here...'}
-          value={email}
-          onChangeText={text => setEmail(text)}
+
+        <Input
+        placeholder='emailAddress@email.com'
+        leftIcon={
+          <Icon
+            name='enveloppe'
+            size={16}
+            color='black'
+          />
+          }
         />
-        <Text>Password</Text>
-        <TextInput
-          placeholder={'Enter password here...'}
-          value={password}
-          onChangeText={text => setPassword(text)}
-          secureTextEntry={true}
+
+        <Input
+        placeholder='Please enter a password'
+        leftIcon={
+          <Icon
+            name='lock'
+            size={16}
+            color='black'
+          />
+          }
         />
-        <Button title="Sign up!" />
+
       </View>
 
-      {/* <View style={{flex: 1}}>
-        <Text>Debug</Text>
-        <Text>IsCoachSelected = {isCoachSelected.toString()}</Text>
-        <Text>Email = {email}</Text>
-        <Text>Password = {password}</Text>
-      </View> */}
     </View>
   );
 }
