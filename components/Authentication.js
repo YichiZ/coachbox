@@ -14,6 +14,8 @@ export default function Authentication() {
   const [isCoachSelected, setIsCoachSelected] = React.useState(true);
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const [count, setCount] = React.useState(0);
+  const [text, setText] = React.useState("debug");
 
   return (
     <View style={{alignItems: 'center', flex: 2}}>
@@ -66,7 +68,19 @@ export default function Authentication() {
           onChangeText={text => setPassword(text)}
           secureTextEntry={true}
         />
-        <Button title="Sign up!" />
+        <Button 
+          title={`Sign up!`}
+          onPress={() => {
+            setCount(count + 1);
+            console.log("hello");
+            
+            fetch('http://localhost:3000')
+              .then(response => setText(response))
+              .catch(err => setText(err));
+
+            
+          }}
+        />
       </View>
 
       {/* <View style={{flex: 1}}>
